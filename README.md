@@ -165,6 +165,10 @@ Include customer segmentation (RFM analysis)
 
 Incorporate larger datasets for better forecasting
 
+# Author
+Janay Wesso
+Aspiring Data Analyst
+
 Automate data pipeline
 
 
