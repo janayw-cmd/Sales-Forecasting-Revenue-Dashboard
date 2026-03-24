@@ -99,7 +99,7 @@ Average Order Value (AOV)
 
 📈 Visualizations
 
-Revenue trend over time (line chart)
+Revenue trend over time/Forecasting (line chart)
 
 Revenue by region (bar chart)
 
@@ -113,7 +113,83 @@ Region
 
 Product Category
 
-<img width="1194" height="672" alt="Revenue Dashboard" src="https://github.com/user-attachments/assets/c3c6be33-aea3-45ff-94a4-47db53778c7a" />
+<img width="1525" height="855" alt="RevenueCasting" src="https://github.com/user-attachments/assets/71da765b-59c0-430d-8681-29e7062b752a" />
+
+# Forecasting Feature
+
+## Sales Forecasting Overview
+
+This dashboard includes a built-in forecasting feature using Power BI’s native analytics tools to project future revenue trends based on historical sales data.
+
+The forecast is displayed in the “3 Month Forecast” line chart, which extends actual revenue patterns into future periods using time series analysis.
+
+⚙️ How It Works
+
+The forecast is generated using Power BI’s exponential smoothing algorithm
+
+It analyzes historical revenue trends over time
+
+Produces a forward-looking projection with uncertainty bounds
+
+## Data Preparation
+
+To enable accurate forecasting:
+
+A dedicated Date Table was created using:
+
+DateTable = CALENDAR(MIN(Sales_Data[Order_Date]), MAX(Sales_Data[Order_Date]))
+
+A relationship was established:
+
+ DateTable[Date] → Sales_Data[Order_Date]
+ 
+ Missing dates were handled to ensure a continuous time series
+
+Revenue measures were adjusted to replace blanks with zero:
+
+Total Revenue = COALESCE(SUM(Sales_Data[Revenue]), 0)
+
+## Forecast Configuration
+
+The forecast was configured with the following settings:
+
+Forecast Length: 3 Months
+
+Confidence Interval: 95%
+
+Seasonality: Auto-detected
+
+Ignore Last: 0 periods
+
+These settings allow the model to:
+
+Capture underlying trends
+
+Account for variability in revenue
+
+Provide a realistic projection range
+
+📊 Visual Interpretation
+Blue Line: Historical revenue data
+
+Green Area: Forecasted revenue
+
+Shaded Region: Confidence interval (uncertainty range)
+
+Users can:
+
+Identify expected revenue growth trends
+
+Understand potential variability in future performance
+
+Support data-driven planning and decision-making
+
+⚠️ Limitations
+Forecast accuracy depends on data quality and consistency
+
+Large gaps or irregular sales patterns may reduce reliability
+
+Assumes past trends will continue into the future
 
 # Advanced Feature: Custom Tooltips in Power BI
 
@@ -137,7 +213,7 @@ Revenue (Sales Amount)
 
 This allows users to quickly understand which product categories are driving revenue when hovering over data points.
 
-<img width="1293" height="722" alt="Tooltip" src="https://github.com/user-attachments/assets/a914f9af-c707-45b3-a616-7016e98e55a5" />
+<img width="1535" height="855" alt="RevenueCastingTT" src="https://github.com/user-attachments/assets/b78e943b-33f8-415d-958c-3ee95c297704" />
 
 💡 Impact
 
