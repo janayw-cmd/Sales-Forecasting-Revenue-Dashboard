@@ -89,7 +89,7 @@ Power BI Dashboard
 
 The dashboard includes:
 
-# 🔑  Key Metrics
+# 🔑 Key Metrics
 Total Revenue
 
 Total Orders
@@ -221,7 +221,7 @@ Keeps dashboard clean
 
 Adds deeper insights
 
-# Key Insights
+# 🔑 Key Insights
 
 Electronics generate the highest revenue
 
